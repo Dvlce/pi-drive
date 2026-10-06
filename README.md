@@ -4,6 +4,8 @@ Un’app Android piccola, in italiano, per salvare foto, video, file, cartelle e
 
 L’app usa componenti Android nativi, senza WebView o librerie esterne. Il server usa soltanto la libreria standard Python. I file restano sul disco scelto, nella cartella `PiDrive`.
 
+<img src="docs/app-android.png" width="320" alt="Schermata reale di Pi Drive su Android: pulsanti grandi, disco scelto e copia verificata al 100%" />
+
 ## Per iniziare dal telefono
 
 1. Scarica e installa **Pi-Drive.apk** dalla [release più recente](https://github.com/Dvlce/pi-drive/releases/latest). Android può chiedere di consentire l’installazione dal browser.
