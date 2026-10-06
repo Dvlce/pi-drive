@@ -220,7 +220,7 @@ public final class MainActivity extends Activity {
     private void finishCollection(JSONArray incoming){
         runOnUiThread(()->{busy=false;
             if(incoming.length()==0){notice("Nessun file trovato","Non vedo file accessibili. Prova a sceglierli manualmente o controlla i permessi nelle impostazioni del telefono.");return;}
-            new AlertDialog.Builder(this).setTitle("Salviamo questi file?").setMessage(incoming.length()+" file selezionati.\nDestinazione: "+selectedName+".\nGli originali restano sul telefono.")
+            new AlertDialog.Builder(this).setTitle("Salviamo questi file?").setMessage(incoming.length()+(incoming.length()==1?" file selezionato.":" file selezionati.")+"\nDestinazione: "+selectedName+".\nGli originali restano sul telefono.")
                 .setNegativeButton("Annulla",null).setPositiveButton("Salva sul disco",(d,w)->task(()->{int added=Queue.add(this,incoming);runOnUiThread(()->{if(added==0)notice("Già presenti","Questi file sono già nell’elenco dei salvataggi. Puoi vedere le copie nell’archivio o riprendere una copia interrotta.");else startTransfers();});return null;})).show();
         });
     }
@@ -275,7 +275,7 @@ public final class MainActivity extends Activity {
             int omitted=skipped;
             runOnUiThread(()->{busy=false;
                 if(eligible.isEmpty()){notice("Nessun originale da rimuovere","Nessun file soddisfa tutti i controlli. Collega il disco e controlla i permessi del telefono. Gli originali restano al loro posto.");return;}
-                new AlertDialog.Builder(this).setTitle("Rimuovere "+eligible.size()+" originali?").setMessage("Le copie sono state verificate sul disco.\n"+(omitted>0?omitted+" file esclusi perché non verificabili.\n":"")+"Rimuovo gli originali selezionati dal telefono. Android potrebbe chiederti un’ulteriore conferma.")
+                new AlertDialog.Builder(this).setTitle("Rimuovere "+eligible.size()+(eligible.size()==1?" originale?":" originali?")).setMessage("Le copie sono state verificate sul disco.\n"+(omitted>0?omitted+" file esclusi perché non verificabili.\n":"")+"Rimuovo gli originali selezionati dal telefono. Android potrebbe chiederti un’ulteriore conferma.")
                     .setNegativeButton("Tieni gli originali",null).setPositiveButton("Libera spazio",(d,w)->deleteVerified(eligible)).show();
             });return null;});
     }
