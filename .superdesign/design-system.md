@@ -1,0 +1,11 @@
+# Pi Drive — I ricordi di mamma
+
+App Android nativa e leggera per una mamma poco esperta. Archivio fisico collegato al Raspberry Pi 5, accesso via Wi-Fi domestico o Tailscale. L'interfaccia è italiana. Nessun dato dimostrativo nell'app reale.
+
+Fonte visiva principale: Softly - Digital Wellness App (softly-digital-wellness-app), adattata per leggibilità e componenti Android nativi. Sfondo caldo #FDFCF8, testo #292524, verde salvia chiaro #E8EFE8, bianco #FFFFFF, primario verde scuro #285C45, secondario #625D58, bordi #DADFD8. Colore corallo #FFB7B2 solo per avvisi con testo scuro. Verde primario aggiunto per contrasto accessibile. Font di sistema sans-serif; nessun font da scaricare. Nessun corsivo, grana, sfocatura o animazione decorativa. Spaziature 8, 12, 16, 24, 32 dp, angoli 20 dp. Titolo 30 sp, pulsanti 20 sp, testo 18 sp, dettagli 16 sp. Target minimi 56 dp, testo adattabile alle impostazioni del telefono. Icone semplici accompagnate sempre da parole.
+
+Home: titolo 'I tuoi ricordi, al sicuro.'; indicatore reale 'Collegato al tuo archivio' oppure 'Archivio non raggiungibile'; scheda disco con nome, spazio libero e pulsante 'Scegli disco'. Tre azioni in una colonna: 'Salva foto e video', 'Scegli altri file', 'Vedi file salvati'. Caricamento: numero di file, nome attuale, barra e percentuale reale, pulsanti 'Pausa' e 'Riprendi'. Dopo verifica sul disco, azione separata 'Libera spazio sul telefono', spiega che riguarda solo gli originali verificati e mostra conferma. Niente cancellazione automatica all'avvio o immediatamente dopo l'importazione.
+
+Schermata dischi: dispositivi fisici rilevati dal server; disco di sistema visibile ma disabilitato. Disco USB selezionabile, richiesta montaggio senza formattazione. Stato vuoto con 'Collega l'hard disk al Raspberry e tocca Aggiorna'. Configurazione iniziale fatta dal figlio: indirizzo Raspberry e codice segreto, memorizzati nell'app. Per la mamma nessun termine API, checksum, SSH, mount o root.
+
+Archivio: cartelle e file veri, pulsante Indietro, file apribile/scaricabile. Importa tutti i media solo con permesso esplicito; selezione file/cartella tramite Android. I dati privati delle altre app richiedono esportazione. La pulizia è possibile solo dopo confronto crittografico del contenuto sul telefono con una copia ancora esistente sul disco e conferma Android quando necessaria.

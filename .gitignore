@@ -1,0 +1,12 @@
+.env
+*.sqlite*
+__pycache__/
+.DS_Store
+.superdesign/tmp/
+.gradle/
+**/build/
+local.properties
+keystore.properties
+*.keystore
+*.jks
+dist/

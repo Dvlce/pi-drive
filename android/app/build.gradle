@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+def signing = new Properties()
+def signingFile = rootProject.file('keystore.properties')
+if (signingFile.exists()) signingFile.withInputStream { signing.load(it) }
+android {
+    namespace 'com.dvlce.pidrive'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.dvlce.pidrive'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+    if (signingFile.exists()) {
+        signingConfigs {
+            release {
+                storeFile file(signing.getProperty('storeFile'))
+                storePassword signing.getProperty('storePassword')
+                keyAlias signing.getProperty('keyAlias')
+                keyPassword signing.getProperty('keyPassword')
+            }
+        }
+    }
+    buildTypes { release { minifyEnabled false; if (signingFile.exists()) signingConfig signingConfigs.release } }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
