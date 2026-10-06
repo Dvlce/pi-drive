@@ -24,7 +24,7 @@ public final class ArchiveProvider extends ContentProvider {
         try {File f=file(uri); MatrixCursor c=new MatrixCursor(new String[]{OpenableColumns.DISPLAY_NAME,OpenableColumns.SIZE});c.addRow(new Object[]{f.getName(),f.length()});return c;}
         catch(Exception e){return null;}
     }
-    @Override public String getType(Uri uri){String ext=android.webkit.MimeTypeMap.getFileExtensionFromUrl(uri.toString());String mime=android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext.toLowerCase());return mime==null?"application/octet-stream":mime;}
+    @Override public String getType(Uri uri){String name=uri.getLastPathSegment();String ext=name!=null&&name.contains(".")?name.substring(name.lastIndexOf('.')+1):"";String mime=android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext.toLowerCase(java.util.Locale.ROOT));return mime==null?"application/octet-stream":mime;}
     @Override public Uri insert(Uri uri,ContentValues v){throw new UnsupportedOperationException();}
     @Override public int update(Uri uri,ContentValues v,String s,String[] a){throw new UnsupportedOperationException();}
     @Override public int delete(Uri uri,String s,String[] a){throw new UnsupportedOperationException();}

@@ -296,7 +296,7 @@ public final class MainActivity extends Activity {
             }
             markDeleted(documents);int omitted=skipped;
             runOnUiThread(()->{busy=false;
-                if(!media.isEmpty()){
+                if(!media.isEmpty() && Build.VERSION.SDK_INT>=30){
                     pendingMedia=media;
                     try{startIntentSenderForResult(MediaStore.createDeleteRequest(getContentResolver(),uris).getIntentSender(),301,null,0,0,0);}
                     catch(Exception e){pendingMedia.clear();failure(e);}
